@@ -1,0 +1,128 @@
+Realizando algumas pesquisas....
+
+Arguments = Args { address: "127.0.0.1", port: 8000, op: Pesquisa, key: [], val: ["titulo:Livro_E&isbn:A"] }
+Reply = Livro { isbn: "AAAAA", titulo: "Livro_EDITADO_AAAAA", autor: "Autor_EDITADO_AAAAA", total: 8, restante: 8 }
+
+
+Arguments = Args { address: "127.0.0.1", port: 8000, op: Pesquisa, key: [], val: ["titulo:Livro_E&autor:Autor_E"] }
+Reply = Livro { isbn: "EEEEE", titulo: "Livro_EEEEE", autor: "Autor_EEEEE", total: 1, restante: 1 }
+Livro { isbn: "AAAAA", titulo: "Livro_EDITADO_AAAAA", autor: "Autor_EDITADO_AAAAA", total: 8, restante: 8 }
+
+
+Arguments = Args { address: "127.0.0.1", port: 8001, op: Pesquisa, key: [], val: ["titulo:Livro_E&autor:Autor_"] }
+Reply = Livro { isbn: "AAAAA", titulo: "Livro_EDITADO_AAAAA", autor: "Autor_EDITADO_AAAAA", total: 8, restante: 8 }
+Livro { isbn: "EEEEE", titulo: "Livro_EEEEE", autor: "Autor_EEEEE", total: 1, restante: 1 }
+
+
+Arguments = Args { address: "127.0.0.1", port: 8001, op: Pesquisa, key: [], val: ["titulo:Livro_E|autor:Autor_"] }
+Reply = Livro { isbn: "CCCCC", titulo: "Livro_CCCCC", autor: "Autor_CCCCC", total: 3, restante: 3 }
+Livro { isbn: "FFFFF", titulo: "Livro_FFFFF", autor: "Autor_FFFFF", total: 5, restante: 5 }
+Livro { isbn: "GGGGG", titulo: "Livro_GGGGG", autor: "Autor_GGGGG", total: 3, restante: 3 }
+Livro { isbn: "AAAAA", titulo: "Livro_EDITADO_AAAAA", autor: "Autor_EDITADO_AAAAA", total: 8, restante: 8 }
+Livro { isbn: "EEEEE", titulo: "Livro_EEEEE", autor: "Autor_EEEEE", total: 1, restante: 1 }
+Livro { isbn: "HHHHH", titulo: "Livro_HHHHH", autor: "Autor_HHHHH", total: 1, restante: 1 }
+Livro { isbn: "DDDDD", titulo: "Livro_DDDDD", autor: "Autor_DDDDD", total: 2, restante: 2 }
+
+Emprestando 1 livro
+
+Arguments = Args { address: "127.0.0.1", port: 8000, op: Empresta, key: ["11111", "DDDDD"], val: [] }
+Reply = Status { status: 0, msg: "" }
+Emprestando mais de 1 livro
+
+Arguments = Args { address: "127.0.0.1", port: 8001, op: Empresta, key: ["33333", "DDDDD", "CCCCC"], val: [] }
+Reply = Status { status: 0, msg: "" }
+Verificando livros emprestados
+
+Arguments = Args { address: "127.0.0.1", port: 8000, op: ListaEmprestados, key: [], val: [] }
+Reply = Livro { isbn: "CCCCC", titulo: "Livro_CCCCC", autor: "Autor_CCCCC", total: 3, restante: 2 }
+Livro { isbn: "DDDDD", titulo: "Livro_DDDDD", autor: "Autor_DDDDD", total: 2, restante: 0 }
+
+Verificando livros em falta
+
+Arguments = Args { address: "127.0.0.1", port: 8001, op: ListaEmFalta, key: [], val: [] }
+Reply = Livro { isbn: "DDDDD", titulo: "Livro_DDDDD", autor: "Autor_DDDDD", total: 2, restante: 0 }
+
+Verificando usuarios
+
+Arguments = Args { address: "127.0.0.1", port: 8000, op: ListaBloqueados, key: [], val: [] }
+Reply = 
+Dormindo um pouco mais de 10s
+............Bloqueando usuarios
+
+Arguments = Args { address: "127.0.0.1", port: 8000, op: Bloqueia, key: [], val: [] }
+Reply = Status { status: 0, msg: "Total de 2 novos usuarios liberados e/ou bloqueados" }
+
+Arguments = Args { address: "127.0.0.1", port: 8001, op: Bloqueia, key: [], val: [] }
+Reply = Status { status: 0, msg: "Total de 2 novos usuarios liberados e/ou bloqueados" }
+Tentando emprestar livro indisponível
+
+Arguments = Args { address: "127.0.0.1", port: 8000, op: Empresta, key: ["22222", "DDDDD"], val: [] }
+Reply = Status { status: 1, msg: "livro com isbn 'DDDDD' em falta\n" }
+Tentando emprestar após 'bloqueio'
+
+Arguments = Args { address: "127.0.0.1", port: 8001, op: Empresta, key: ["11111", "EEEEE"], val: [] }
+Reply = Status { status: 1, msg: "Usuario com cpf '11111' bloqueado" }
+Verificando livros emprestados
+
+Arguments = Args { address: "127.0.0.1", port: 8001, op: ListaEmprestados, key: [], val: [] }
+Reply = Livro { isbn: "CCCCC", titulo: "Livro_CCCCC", autor: "Autor_CCCCC", total: 3, restante: 2 }
+Livro { isbn: "DDDDD", titulo: "Livro_DDDDD", autor: "Autor_DDDDD", total: 2, restante: 0 }
+
+Verificando livros em falta
+
+Arguments = Args { address: "127.0.0.1", port: 8000, op: ListaEmFalta, key: [], val: [] }
+Reply = Livro { isbn: "DDDDD", titulo: "Livro_DDDDD", autor: "Autor_DDDDD", total: 2, restante: 0 }
+
+Verificando usuarios
+
+Arguments = Args { address: "127.0.0.1", port: 8001, op: ListaBloqueados, key: [], val: [] }
+Reply = UsuarioBloqueado { usuario: Some(Usuario { cpf: "11111", nome: "usuario_numero_1", bloqueado: true }), livros: [Livro { isbn: "DDDDD", titulo: "Livro_DDDDD", autor: "Autor_DDDDD", total: 2, restante: 0 }] }
+UsuarioBloqueado { usuario: Some(Usuario { cpf: "33333", nome: "usuario_numero_3", bloqueado: true }), livros: [Livro { isbn: "DDDDD", titulo: "Livro_DDDDD", autor: "Autor_DDDDD", total: 2, restante: 0 }, Livro { isbn: "CCCCC", titulo: "Livro_CCCCC", autor: "Autor_CCCCC", total: 3, restante: 2 }] }
+
+Devolvendo 1 livro
+
+Arguments = Args { address: "127.0.0.1", port: 8001, op: Devolve, key: ["11111", "DDDDD"], val: [] }
+Reply = Status { status: 0, msg: "" }
+Liberando usuarios
+
+Arguments = Args { address: "127.0.0.1", port: 8000, op: Libera, key: [], val: [] }
+Reply = Status { status: 0, msg: "Total de 1 novos usuarios liberados e/ou bloqueados" }
+
+Arguments = Args { address: "127.0.0.1", port: 8001, op: Libera, key: [], val: [] }
+Reply = Status { status: 0, msg: "Total de 1 novos usuarios liberados e/ou bloqueados" }
+Verificando livros emprestados
+
+Arguments = Args { address: "127.0.0.1", port: 8000, op: ListaEmprestados, key: [], val: [] }
+Reply = Livro { isbn: "CCCCC", titulo: "Livro_CCCCC", autor: "Autor_CCCCC", total: 3, restante: 2 }
+Livro { isbn: "DDDDD", titulo: "Livro_DDDDD", autor: "Autor_DDDDD", total: 2, restante: 1 }
+
+Verificando livros em falta
+
+Arguments = Args { address: "127.0.0.1", port: 8001, op: ListaEmFalta, key: [], val: [] }
+Reply = 
+Verificando usuarios
+
+Arguments = Args { address: "127.0.0.1", port: 8000, op: ListaBloqueados, key: [], val: [] }
+Reply = UsuarioBloqueado { usuario: Some(Usuario { cpf: "33333", nome: "usuario_numero_3", bloqueado: true }), livros: [Livro { isbn: "DDDDD", titulo: "Livro_DDDDD", autor: "Autor_DDDDD", total: 2, restante: 1 }, Livro { isbn: "CCCCC", titulo: "Livro_CCCCC", autor: "Autor_CCCCC", total: 3, restante: 2 }] }
+
+Tentando emprestar após 'liberacao'
+
+Arguments = Args { address: "127.0.0.1", port: 8001, op: Empresta, key: ["11111", "EEEEE"], val: [] }
+Reply = Status { status: 0, msg: "" }
+Verificando livros emprestados
+
+Arguments = Args { address: "127.0.0.1", port: 8000, op: ListaEmprestados, key: [], val: [] }
+Reply = Livro { isbn: "EEEEE", titulo: "Livro_EEEEE", autor: "Autor_EEEEE", total: 1, restante: 0 }
+Livro { isbn: "CCCCC", titulo: "Livro_CCCCC", autor: "Autor_CCCCC", total: 3, restante: 2 }
+Livro { isbn: "DDDDD", titulo: "Livro_DDDDD", autor: "Autor_DDDDD", total: 2, restante: 1 }
+
+Verificando livros em falta
+
+Arguments = Args { address: "127.0.0.1", port: 8001, op: ListaEmFalta, key: [], val: [] }
+Reply = Livro { isbn: "EEEEE", titulo: "Livro_EEEEE", autor: "Autor_EEEEE", total: 1, restante: 0 }
+
+Verificando usuarios
+
+Arguments = Args { address: "127.0.0.1", port: 8000, op: ListaBloqueados, key: [], val: [] }
+Reply = UsuarioBloqueado { usuario: Some(Usuario { cpf: "33333", nome: "usuario_numero_3", bloqueado: true }), livros: [Livro { isbn: "DDDDD", titulo: "Livro_DDDDD", autor: "Autor_DDDDD", total: 2, restante: 1 }, Livro { isbn: "CCCCC", titulo: "Livro_CCCCC", autor: "Autor_CCCCC", total: 3, restante: 2 }] }
+

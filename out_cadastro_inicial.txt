@@ -1,0 +1,150 @@
+cadastrando 8 usuarios...
+
+Arguments = Args { address: "127.0.0.1", port: 9000, base: Usuarios, op: Add, key: ["11111"], val: ["usuario_numero_1"] }
+Reply = Status { status: 0, msg: "Usuario inserido com sucesso" }
+
+Arguments = Args { address: "127.0.0.1", port: 9000, base: Usuarios, op: Add, key: ["22222"], val: ["usuario_numero_2"] }
+Reply = Status { status: 0, msg: "Usuario inserido com sucesso" }
+
+Arguments = Args { address: "127.0.0.1", port: 9000, base: Usuarios, op: Add, key: ["33333"], val: ["usuario_numero_3"] }
+Reply = Status { status: 0, msg: "Usuario inserido com sucesso" }
+
+Arguments = Args { address: "127.0.0.1", port: 9000, base: Usuarios, op: Add, key: ["44444"], val: ["usuario_numero_4"] }
+Reply = Status { status: 0, msg: "Usuario inserido com sucesso" }
+
+Arguments = Args { address: "127.0.0.1", port: 9001, base: Usuarios, op: Add, key: ["55555"], val: ["usuario_numero_5"] }
+Reply = Status { status: 0, msg: "Usuario inserido com sucesso" }
+
+Arguments = Args { address: "127.0.0.1", port: 9001, base: Usuarios, op: Add, key: ["66666"], val: ["usuario_numero_6"] }
+Reply = Status { status: 0, msg: "Usuario inserido com sucesso" }
+
+Arguments = Args { address: "127.0.0.1", port: 9001, base: Usuarios, op: Add, key: ["77777"], val: ["usuario_numero_7"] }
+Reply = Status { status: 0, msg: "Usuario inserido com sucesso" }
+
+Arguments = Args { address: "127.0.0.1", port: 9001, base: Usuarios, op: Add, key: ["88888"], val: ["usuario_numero_8"] }
+Reply = Status { status: 0, msg: "Usuario inserido com sucesso" }
+cadastrando 8 livros...
+
+Arguments = Args { address: "127.0.0.1", port: 9000, base: Livros, op: Add, key: ["AAAAA"], val: ["Livro_AAAAA", "Autor_AAAAA", "5"] }
+Reply = Status { status: 0, msg: "Livro inserido com sucesso" }
+
+Arguments = Args { address: "127.0.0.1", port: 9000, base: Livros, op: Add, key: ["BBBBB"], val: ["Livro_BBBBB", "Autor_BBBBB", "4"] }
+Reply = Status { status: 0, msg: "Livro inserido com sucesso" }
+
+Arguments = Args { address: "127.0.0.1", port: 9000, base: Livros, op: Add, key: ["CCCCC"], val: ["Livro_CCCCC", "Autor_CCCCC", "3"] }
+Reply = Status { status: 0, msg: "Livro inserido com sucesso" }
+
+Arguments = Args { address: "127.0.0.1", port: 9000, base: Livros, op: Add, key: ["DDDDD"], val: ["Livro_DDDDD", "Autor_DDDDD", "2"] }
+Reply = Status { status: 0, msg: "Livro inserido com sucesso" }
+
+Arguments = Args { address: "127.0.0.1", port: 9001, base: Livros, op: Add, key: ["EEEEE"], val: ["Livro_EEEEE", "Autor_EEEEE", "1"] }
+Reply = Status { status: 0, msg: "Livro inserido com sucesso" }
+
+Arguments = Args { address: "127.0.0.1", port: 9001, base: Livros, op: Add, key: ["FFFFF"], val: ["Livro_FFFFF", "Autor_FFFFF", "5"] }
+Reply = Status { status: 0, msg: "Livro inserido com sucesso" }
+
+Arguments = Args { address: "127.0.0.1", port: 9001, base: Livros, op: Add, key: ["GGGGG"], val: ["Livro_GGGGG", "Autor_GGGGG", "3"] }
+Reply = Status { status: 0, msg: "Livro inserido com sucesso" }
+
+Arguments = Args { address: "127.0.0.1", port: 9001, base: Livros, op: Add, key: ["HHHHH"], val: ["Livro_HHHHH", "Autor_HHHHH", "1"] }
+Reply = Status { status: 0, msg: "Livro inserido com sucesso" }
+verificando valores em cada servidor...
+
+Arguments = Args { address: "127.0.0.1", port: 9000, base: Usuarios, op: GetAll, key: [], val: [] }
+Reply = Usuario { cpf: "\"66666\"", nome: "\"usuario_numero_6\"" }
+Usuario { cpf: "\"77777\"", nome: "\"usuario_numero_7\"" }
+Usuario { cpf: "\"55555\"", nome: "\"usuario_numero_5\"" }
+Usuario { cpf: "\"44444\"", nome: "\"usuario_numero_4\"" }
+Usuario { cpf: "\"88888\"", nome: "\"usuario_numero_8\"" }
+Usuario { cpf: "\"22222\"", nome: "\"usuario_numero_2\"" }
+Usuario { cpf: "\"33333\"", nome: "\"usuario_numero_3\"" }
+Usuario { cpf: "\"11111\"", nome: "\"usuario_numero_1\"" }
+
+
+Arguments = Args { address: "127.0.0.1", port: 9001, base: Usuarios, op: GetAll, key: [], val: [] }
+Reply = Usuario { cpf: "\"11111\"", nome: "\"usuario_numero_1\"" }
+Usuario { cpf: "\"44444\"", nome: "\"usuario_numero_4\"" }
+Usuario { cpf: "\"77777\"", nome: "\"usuario_numero_7\"" }
+Usuario { cpf: "\"88888\"", nome: "\"usuario_numero_8\"" }
+Usuario { cpf: "\"66666\"", nome: "\"usuario_numero_6\"" }
+Usuario { cpf: "\"55555\"", nome: "\"usuario_numero_5\"" }
+Usuario { cpf: "\"22222\"", nome: "\"usuario_numero_2\"" }
+Usuario { cpf: "\"33333\"", nome: "\"usuario_numero_3\"" }
+
+
+Arguments = Args { address: "127.0.0.1", port: 9000, base: Livros, op: GetAll, key: [], val: [] }
+Reply = Livro { isbn: "\"DDDDD\"", titulo: "\"Livro_DDDDD\"", autor: "\"Autor_DDDDD\"", total: 2 }
+Livro { isbn: "\"FFFFF\"", titulo: "\"Livro_FFFFF\"", autor: "\"Autor_FFFFF\"", total: 5 }
+Livro { isbn: "\"HHHHH\"", titulo: "\"Livro_HHHHH\"", autor: "\"Autor_HHHHH\"", total: 1 }
+Livro { isbn: "\"EEEEE\"", titulo: "\"Livro_EEEEE\"", autor: "\"Autor_EEEEE\"", total: 1 }
+Livro { isbn: "\"GGGGG\"", titulo: "\"Livro_GGGGG\"", autor: "\"Autor_GGGGG\"", total: 3 }
+Livro { isbn: "\"AAAAA\"", titulo: "\"Livro_AAAAA\"", autor: "\"Autor_AAAAA\"", total: 5 }
+Livro { isbn: "\"CCCCC\"", titulo: "\"Livro_CCCCC\"", autor: "\"Autor_CCCCC\"", total: 3 }
+Livro { isbn: "\"BBBBB\"", titulo: "\"Livro_BBBBB\"", autor: "\"Autor_BBBBB\"", total: 4 }
+
+
+Arguments = Args { address: "127.0.0.1", port: 9001, base: Livros, op: GetAll, key: [], val: [] }
+Reply = Livro { isbn: "\"FFFFF\"", titulo: "\"Livro_FFFFF\"", autor: "\"Autor_FFFFF\"", total: 5 }
+Livro { isbn: "\"EEEEE\"", titulo: "\"Livro_EEEEE\"", autor: "\"Autor_EEEEE\"", total: 1 }
+Livro { isbn: "\"BBBBB\"", titulo: "\"Livro_BBBBB\"", autor: "\"Autor_BBBBB\"", total: 4 }
+Livro { isbn: "\"HHHHH\"", titulo: "\"Livro_HHHHH\"", autor: "\"Autor_HHHHH\"", total: 1 }
+Livro { isbn: "\"GGGGG\"", titulo: "\"Livro_GGGGG\"", autor: "\"Autor_GGGGG\"", total: 3 }
+Livro { isbn: "\"CCCCC\"", titulo: "\"Livro_CCCCC\"", autor: "\"Autor_CCCCC\"", total: 3 }
+Livro { isbn: "\"DDDDD\"", titulo: "\"Livro_DDDDD\"", autor: "\"Autor_DDDDD\"", total: 2 }
+Livro { isbn: "\"AAAAA\"", titulo: "\"Livro_AAAAA\"", autor: "\"Autor_AAAAA\"", total: 5 }
+
+editando 1 livro e 1 usuario...
+
+Arguments = Args { address: "127.0.0.1", port: 9001, base: Usuarios, op: Upd, key: ["66666"], val: ["usuario_EDITADO_numero_6"] }
+Reply = Status { status: 0, msg: "Usuario modificado com sucesso" }
+
+Arguments = Args { address: "127.0.0.1", port: 9000, base: Livros, op: Upd, key: ["AAAAA"], val: ["Livro_EDITADO_AAAAA", "Autor_EDITADO_AAAAA", "8"] }
+Reply = Status { status: 0, msg: "Livro modificado com sucesso" }
+excluindo 1 livro e 1 usuario...
+
+Arguments = Args { address: "127.0.0.1", port: 9001, base: Usuarios, op: Del, key: ["88888"], val: [] }
+Reply = Status { status: 0, msg: "Usuario removido com sucesso" }
+
+Arguments = Args { address: "127.0.0.1", port: 9000, base: Livros, op: Del, key: ["BBBBB"], val: [] }
+Reply = Status { status: 0, msg: "Livro removido com sucesso" }
+verificando valores em cada servidor...
+
+Arguments = Args { address: "127.0.0.1", port: 9000, base: Usuarios, op: GetAll, key: [], val: [] }
+Reply = Usuario { cpf: "\"66666\"", nome: "\"usuario_EDITADO_numero_6\"" }
+Usuario { cpf: "\"77777\"", nome: "\"usuario_numero_7\"" }
+Usuario { cpf: "\"55555\"", nome: "\"usuario_numero_5\"" }
+Usuario { cpf: "\"44444\"", nome: "\"usuario_numero_4\"" }
+Usuario { cpf: "\"22222\"", nome: "\"usuario_numero_2\"" }
+Usuario { cpf: "\"33333\"", nome: "\"usuario_numero_3\"" }
+Usuario { cpf: "\"11111\"", nome: "\"usuario_numero_1\"" }
+
+
+Arguments = Args { address: "127.0.0.1", port: 9001, base: Usuarios, op: GetAll, key: [], val: [] }
+Reply = Usuario { cpf: "\"11111\"", nome: "\"usuario_numero_1\"" }
+Usuario { cpf: "\"44444\"", nome: "\"usuario_numero_4\"" }
+Usuario { cpf: "\"77777\"", nome: "\"usuario_numero_7\"" }
+Usuario { cpf: "\"66666\"", nome: "\"usuario_EDITADO_numero_6\"" }
+Usuario { cpf: "\"55555\"", nome: "\"usuario_numero_5\"" }
+Usuario { cpf: "\"22222\"", nome: "\"usuario_numero_2\"" }
+Usuario { cpf: "\"33333\"", nome: "\"usuario_numero_3\"" }
+
+
+Arguments = Args { address: "127.0.0.1", port: 9000, base: Livros, op: GetAll, key: [], val: [] }
+Reply = Livro { isbn: "\"DDDDD\"", titulo: "\"Livro_DDDDD\"", autor: "\"Autor_DDDDD\"", total: 2 }
+Livro { isbn: "\"FFFFF\"", titulo: "\"Livro_FFFFF\"", autor: "\"Autor_FFFFF\"", total: 5 }
+Livro { isbn: "\"HHHHH\"", titulo: "\"Livro_HHHHH\"", autor: "\"Autor_HHHHH\"", total: 1 }
+Livro { isbn: "\"EEEEE\"", titulo: "\"Livro_EEEEE\"", autor: "\"Autor_EEEEE\"", total: 1 }
+Livro { isbn: "\"GGGGG\"", titulo: "\"Livro_GGGGG\"", autor: "\"Autor_GGGGG\"", total: 3 }
+Livro { isbn: "\"AAAAA\"", titulo: "\"Livro_EDITADO_AAAAA\"", autor: "\"Autor_EDITADO_AAAAA\"", total: 8 }
+Livro { isbn: "\"CCCCC\"", titulo: "\"Livro_CCCCC\"", autor: "\"Autor_CCCCC\"", total: 3 }
+
+
+Arguments = Args { address: "127.0.0.1", port: 9001, base: Livros, op: GetAll, key: [], val: [] }
+Reply = Livro { isbn: "\"FFFFF\"", titulo: "\"Livro_FFFFF\"", autor: "\"Autor_FFFFF\"", total: 5 }
+Livro { isbn: "\"EEEEE\"", titulo: "\"Livro_EEEEE\"", autor: "\"Autor_EEEEE\"", total: 1 }
+Livro { isbn: "\"HHHHH\"", titulo: "\"Livro_HHHHH\"", autor: "\"Autor_HHHHH\"", total: 1 }
+Livro { isbn: "\"GGGGG\"", titulo: "\"Livro_GGGGG\"", autor: "\"Autor_GGGGG\"", total: 3 }
+Livro { isbn: "\"CCCCC\"", titulo: "\"Livro_CCCCC\"", autor: "\"Autor_CCCCC\"", total: 3 }
+Livro { isbn: "\"DDDDD\"", titulo: "\"Livro_DDDDD\"", autor: "\"Autor_DDDDD\"", total: 2 }
+Livro { isbn: "\"AAAAA\"", titulo: "\"Livro_EDITADO_AAAAA\"", autor: "\"Autor_EDITADO_AAAAA\"", total: 8 }
+
